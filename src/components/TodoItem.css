@@ -1,0 +1,19 @@
+.TodoItem-complete {
+    text-decoration: line-through;
+    opacity: .3;
+}
+
+.TodoItem {
+    font-weight: 300;
+    font-size: 18px;
+    color: blueviolet;
+    border: 1px solid #bebebe;
+    width: 50%;
+    display: flex;
+    
+}
+
+.TodoItem > p {
+    margin: 0 0 0 20px;
+    
+}
