@@ -12,10 +12,10 @@ class TodoItem extends Component {
       url = success1;
     }
     return (
-      <div onClick={onClick} className={classNames('TodoItem', {
+      <div  className={classNames('TodoItem', {
         'TodoItem-complete': item.isComplete
       })}>
-        <img src = {url} width={32} height={32}/>
+        <img onClick={onClick} src = {url} width={32} height={32}/>
         <p>{ this.props.item.title }</p>
       </div>
     ); 

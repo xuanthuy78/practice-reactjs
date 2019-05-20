@@ -4,10 +4,17 @@ import './App.css';
 import TodoItem from './components/TodoItem';
 import TrafficLight from './components/TrafficLight';
 import tick from './images/tick.svg';
+import Exam from './components/Exam';
+import Count from './components/count';
+import Count2 from './components/count2';
 
 class App extends Component {
   constructor () {
     super();
+    this.exam = [
+      { title: 'Dog', isComplete: true }, 
+      { title: 'Cat', isComplete: false }
+    ];
     this.state = {
       newItem : '',
       todoItems : [
@@ -19,8 +26,10 @@ class App extends Component {
     this.onKeyUp = this.onKeyUp.bind(this);
     this.onChange = this.onChange.bind(this);
   }
+  
   onItemClick (item) {
     return (event) => {
+      console.log('dfasdfa', event);
       const isComplete = item.isComplete;
       const { todoItems } = this.state;
       const index = this.state.todoItems.indexOf(item);
@@ -40,6 +49,7 @@ class App extends Component {
   }
 
   onKeyUp(event) {
+    console.log('dsf',event.keyCode);
     if(event.keyCode ===13) {
       let text = event.target.value;
       if (!text) {
@@ -62,7 +72,6 @@ class App extends Component {
     this.setState ( {
       newItem: event.target.value
     })
-    console.log('adfadf');
   }
   render () {
     const {todoItems, newItem} = this.state
@@ -93,6 +102,13 @@ class App extends Component {
           }
 
           <TrafficLight />
+          {/*render a list*/}
+          {
+            this.exam.map((list, index) => <Exam animal={list} key={index} />)
+          }
+
+          <Count />
+          <Count2 />
       </div>
     );
   }
